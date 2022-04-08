@@ -1,3 +1,5 @@
-FROM openjdk:8-jdk-alpine
-COPY target/*.jar app.jar
-#ENTRYPOINT ["java","-jar","/app.jar"]
+FROM openjdk:11
+WORKDIR /myapp
+COPY target/*.jar /myapp/app.jar
+EXPOSE 8081
+CMD ["java","-jar","app.jar"]
