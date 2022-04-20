@@ -30,7 +30,7 @@ pipeline {
         // }
         stage ('Run Newman') {
             steps {
-                sh 'newman run simple_book_api_collection.json -r cli,htmlextra --reporter-htmlextra-export "newman/report.xml"'
+                sh '/home/ubuntu/.nvm/versions/node/v18.0.0/bin/newman run simple_book_api_collection.json -r cli,htmlextra --reporter-htmlextra-export "newman/report.xml"'
             }
             // post {
             //     success {
