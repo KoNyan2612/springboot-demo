@@ -12,6 +12,11 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/KoNyan2612/springboot-demo.git'  
             }
         }
+        stage ('Unit Test') {
+            steps {
+                echo 'unit testing ...'
+            }
+        }
         stage ('Maven Build') {
             steps {
                 sh 'mvn clean package'
