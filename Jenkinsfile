@@ -25,7 +25,7 @@ pipeline {
         stage ('Docker Build and Run') {
             steps {
                 sh 'docker build -t nyanlynn99/springboot:1 .'
-                sh 'docker run -d --name springboot -p 8081:8081 nyanlynn99/springboot:1'
+                sh 'docker run -d -p 8081:8081 nyanlynn99/springboot:1'
             }
         }
         stage ('Run Newman') {
@@ -34,7 +34,6 @@ pipeline {
             }
             post {
                 success {
-                    sh "docker stop springboot"
                     withCredentials([usernamePassword(credentialsId: 'DockerHub', passwordVariable: 'password', usernameVariable: 'username')]) {
                         sh 'echo ${password} | docker login -u ${username} --password-stdin'
                     }
