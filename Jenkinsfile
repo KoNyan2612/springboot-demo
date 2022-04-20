@@ -4,7 +4,7 @@ pipeline {
     }
     tools {
         maven 'Maven 3.6.3(agent-1)'
-        nodejs 'nodejs 10.19.0'
+        nodejs 'node 18'
     }
     stages {
         stage ('Git Checkout') {
